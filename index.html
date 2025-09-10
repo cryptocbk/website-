@@ -1,1261 +1,359 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
+    <title>Веселый детский уголок</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌈 Волшебная Страна - Детское приложение</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Comic Sans MS', 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
+            font-family: 'Comic Sans MS', cursive;
+            margin: 0;
+            background: #ffe6f2;
         }
-
-        /* Анимированные облака */
-        .clouds {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .cloud {
-            position: absolute;
-            background: white;
-            border-radius: 100px;
-            opacity: 0.4;
-            animation: float 20s infinite;
-        }
-
-        .cloud::before,
-        .cloud::after {
-            content: '';
-            position: absolute;
-            background: white;
-            border-radius: 100px;
-        }
-
-        .cloud1 {
-            width: 100px;
-            height: 40px;
-            top: 20%;
-            animation-duration: 25s;
-        }
-
-        .cloud1::before {
-            width: 50px;
-            height: 50px;
-            top: -25px;
-            left: 10px;
-        }
-
-        .cloud1::after {
-            width: 60px;
-            height: 40px;
-            top: -15px;
-            right: 10px;
-        }
-
-        .cloud2 {
-            width: 80px;
-            height: 35px;
-            top: 60%;
-            animation-duration: 30s;
-            animation-delay: 5s;
-        }
-
-        .cloud2::before {
-            width: 60px;
-            height: 45px;
-            top: -20px;
-            left: 15px;
-        }
-
-        .cloud2::after {
-            width: 50px;
-            height: 35px;
-            top: -10px;
-            right: 15px;
-        }
-
-        @keyframes float {
-            from {
-                left: -100px;
-            }
-            to {
-                left: calc(100% + 100px);
-            }
-        }
-
-        /* Основной контейнер */
+        
         .container {
-            position: relative;
-            z-index: 2;
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 800px;
+            margin: 20px auto;
             padding: 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255,105,180,0.3);
         }
 
-        /* Заголовок */
         .header {
             text-align: center;
-            background: white;
-            border-radius: 30px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            animation: bounceIn 1s;
+            color: #ff69b4;
+            font-size: 2.5em;
+            margin: 20px 0;
+            text-shadow: 2px 2px #ffcc00;
         }
 
-        @keyframes bounceIn {
-            0% {
-                transform: scale(0.3);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .title {
-            font-size: 3em;
-            background: linear-gradient(45deg, #f093fb, #f5576c, #4facfe, #00f2fe);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradient 3s ease infinite;
-            margin-bottom: 10px;
-        }
-
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .subtitle {
-            color: #666;
-            font-size: 1.2em;
-        }
-
-        /* Меню навигации */
-        .nav-menu {
+        .nav {
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 30px;
             flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
         }
 
-        .nav-btn {
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
+        .nav button {
+            padding: 12px 25px;
+            background: #ffb6c1;
+            border: 3px solid #ff69b4;
+            border-radius: 25px;
             font-size: 1.1em;
-            font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            position: relative;
-            overflow: hidden;
+            transition: 0.3s;
         }
 
-        .nav-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.5);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .nav-btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .nav-btn.stories {
-            background: linear-gradient(135deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%);
+        .nav button:hover {
+            transform: scale(1.1);
+            background: #ff69b4;
             color: white;
         }
 
-        .nav-btn.games {
-            background: linear-gradient(135deg, #FFE985 0%, #FA742B 100%);
-            color: white;
-        }
-
-        .nav-btn.quiz {
-            background: linear-gradient(135deg, #72EDF2 0%, #5151E5 100%);
-            color: white;
-        }
-
-        .nav-btn.draw {
-            background: linear-gradient(135deg, #FF6FD8 0%, #3813C2 100%);
-            color: white;
-        }
-
-        .nav-btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
-
-        /* Контент секции */
-        .content-section {
+        .content {
+            padding: 20px;
             display: none;
-            animation: fadeIn 0.5s;
         }
 
-        .content-section.active {
-            display: block;
+        .story img {
+            max-width: 100%;
+            border-radius: 15px;
+            border: 4px solid #ffcc00;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .test {
+            background: #fff0f5;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
         }
 
-        /* Карточки историй */
-        .stories-grid {
+        .game-area {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
             margin-top: 20px;
         }
 
-        .story-card {
-            background: white;
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s;
+        .puzzle-piece {
+            width: 100px;
+            height: 100px;
+            background: #ffcc00;
+            border: 3px solid #ff69b4;
+            border-radius: 10px;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .story-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-            transform: rotate(45deg);
-            transition: all 0.5s;
-            opacity: 0;
-        }
-
-        .story-card:hover::before {
-            animation: shine 0.5s;
-        }
-
-        @keyframes shine {
-            0% {
-                transform: translateX(-100%) translateY(-100%) rotate(45deg);
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateX(100%) translateY(100%) rotate(45deg);
-                opacity: 0;
-            }
-        }
-
-        .story-card:hover {
-            transform: translateY(-10px) rotate(-2deg);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-        }
-
-        .story-emoji {
-            font-size: 4em;
-            text-align: center;
-            margin-bottom: 15px;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .story-title {
-            font-size: 1.3em;
-            color: #333;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-
-        .story-preview {
-            color: #666;
-            line-height: 1.6;
-            text-align: center;
-        }
-
-        /* Игровая секция */
-        .game-container {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        .game-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 2em;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .memory-game {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            max-width: 500px;
-            margin: 0 auto;
         }
 
         .memory-card {
-            aspect-ratio: 1;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 15px;
+            width: 100px;
+            height: 100px;
+            background: #ffb6c1;
+            border-radius: 10px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3em;
-            transition: all 0.3s;
-            position: relative;
-            transform-style: preserve-3d;
-        }
-
-        .memory-card:hover {
-            transform: scale(1.05);
-        }
-
-        .memory-card.flipped {
-            transform: rotateY(180deg);
-        }
-
-        .memory-card-front,
-        .memory-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 15px;
-        }
-
-        .memory-card-front {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .memory-card-back {
-            background: white;
-            transform: rotateY(180deg);
-            border: 3px solid #667eea;
-        }
-
-        .memory-card.matched {
-            animation: matchFound 0.5s;
-            pointer-events: none;
-        }
-
-        @keyframes matchFound {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-
-        /* Викторина */
-        .quiz-container {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .quiz-question {
-            font-size: 1.5em;
-            color: #333;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .quiz-image {
-            font-size: 5em;
-            text-align: center;
-            margin-bottom: 20px;
-            animation: wiggle 2s infinite;
-        }
-
-        @keyframes wiggle {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(5deg); }
-            75% { transform: rotate(-5deg); }
-        }
-
-        .quiz-options {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-bottom: 20px;
+            transition: 0.3s;
         }
 
         .quiz-option {
-            padding: 15px;
-            border: 3px solid #e0e0e0;
-            border-radius: 15px;
-            background: white;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .quiz-option:hover {
-            transform: scale(1.05);
-            border-color: #667eea;
-            background: linear-gradient(135deg, #f0f0ff 0%, #e0e0ff 100%);
-        }
-
-        .quiz-option.correct {
-            background: linear-gradient(135deg, #55efc4 0%, #81ecec 100%);
-            border-color: #00b894;
-            animation: correctAnswer 0.5s;
-        }
-
-        .quiz-option.wrong {
-            background: linear-gradient(135deg, #fab1a0 0%, #ff7675 100%);
-            border-color: #d63031;
-            animation: wrongAnswer 0.5s;
-        }
-
-        @keyframes correctAnswer {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        @keyframes wrongAnswer {
-            0%, 20%, 40%, 60%, 80%, 100% { transform: translateX(0); }
-            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-        }
-
-        /* Рисовалка */
-        .drawing-container {
-            background: white;
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .drawing-tools {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .tool-btn {
-            padding: 10px 20px;
-            border: none;
+            padding: 10px;
+            margin: 5px;
+            background: #ffe6f2;
+            border: 2px solid #ff69b4;
             border-radius: 10px;
             cursor: pointer;
-            font-size: 1em;
-            transition: all 0.3s;
         }
 
-        .color-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: 0.3s;
         }
 
-        .color-btn:hover,
-        .color-btn.active {
-            transform: scale(1.2);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        .gallery img:hover {
+            transform: rotate(5deg);
         }
 
-        #canvas {
-            border: 3px solid #e0e0e0;
-            border-radius: 15px;
-            display: block;
-            margin: 0 auto;
-            cursor: crosshair;
-            background: white;
-        }
-
-        /* Модальное окно истории */
-        .story-modal {
+        .modal {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1000;
-            animation: fadeIn 0.3s;
-        }
-
-        .story-modal.active {
-            display: flex;
-            align-items: center;
+            background: rgba(0,0,0,0.8);
             justify-content: center;
+            align-items: center;
         }
 
-        .story-content {
-            background: white;
-            border-radius: 30px;
-            padding: 40px;
-            max-width: 600px;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-            animation: slideUp 0.5s;
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 2em;
-            cursor: pointer;
-            color: #999;
-            transition: all 0.3s;
-        }
-
-        .close-modal:hover {
-            color: #333;
-            transform: rotate(90deg);
-        }
-
-        .story-full {
-            font-size: 1.2em;
-            line-height: 1.8;
-            color: #444;
-        }
-
-        .story-image {
-            font-size: 6em;
-            text-align: center;
-            margin: 20px 0;
-            animation: storyAnimation 3s infinite;
-        }
-
-        @keyframes storyAnimation {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            25% { transform: scale(1.1) rotate(5deg); }
-            75% { transform: scale(0.9) rotate(-5deg); }
-        }
-
-        /* Счетчик очков */
-        .score-container {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-            z-index: 100;
-            animation: slideInRight 0.5s;
-        }
-
-        @keyframes slideInRight {
-            from {
-                transform: translateX(100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
         }
 
         .score {
+            color: #2ecc71;
             font-size: 1.5em;
-            font-weight: bold;
-            color: #667eea;
-        }
-
-        .stars {
-            color: gold;
-            font-size: 1.3em;
-            margin-left: 10px;
-        }
-
-        /* Награды */
-        .achievement {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transform: translateX(400px);
-            transition: transform 0.5s;
-            z-index: 1000;
-        }
-
-        .achievement.show {
-            transform: translateX(0);
-        }
-
-        .achievement-title {
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .achievement-text {
-            font-size: 0.9em;
-        }
-
-        /* Звуковые кнопки */
-        .sound-toggle {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: white;
-            border: none;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-            cursor: pointer;
-            font-size: 1.5em;
-            z-index: 100;
-            transition: all 0.3s;
-        }
-
-        .sound-toggle:hover {
-            transform: scale(1.1);
-        }
-
-        .sound-toggle.muted {
-            background: #e0e0e0;
-        }
-
-        /* Адаптивность */
-        @media (max-width: 768px) {
-            .title {
-                font-size: 2em;
-            }
-            
-            .memory-game {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .quiz-options {
-                grid-template-columns: 1fr;
-            }
-            
-            .score-container {
-                top: auto;
-                bottom: 80px;
-            }
-        }
-
-        /* Анимация загрузки */
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s;
-        }
-
-        .loader.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .loader-content {
             text-align: center;
-            color: white;
-        }
-
-        .loader-emoji {
-            font-size: 5em;
-            animation: spin 2s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .loader-text {
-            font-size: 1.5em;
-            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <!-- Загрузчик -->
-    <div class="loader" id="loader">
-        <div class="loader-content">
-            <div class="loader-emoji">🌈</div>
-            <div class="loader-text">Загружаем волшебство...</div>
-        </div>
-    </div>
-
-    <!-- Анимированные облака -->
-    <div class="clouds">
-        <div class="cloud cloud1"></div>
-        <div class="cloud cloud2"></div>
-    </div>
-
-    <!-- Счетчик очков -->
-    <div class="score-container">
-        <span class="score">Очки: <span id="scoreValue">0</span></span>
-        <span class="stars">⭐</span>
-    </div>
-
-    <!-- Кнопка звука -->
-    <button class="sound-toggle" onclick="toggleSound()" id="soundBtn">🔊</button>
-
-    <!-- Уведомление о достижении -->
-    <div class="achievement" id="achievement">
-        <div class="achievement-title">🏆 Достижение!</div>
-        <div class="achievement-text" id="achievementText">Текст достижения</div>
-    </div>
-
-    <!-- Основной контейнер -->
     <div class="container">
-        <!-- Заголовок -->
-        <div class="header">
-            <h1 class="title">🌈 Волшебная Страна</h1>
-            <p class="subtitle">Играй, учись и веселись!</p>
+        <div class="header">🌈 Волшебный Мир 🌈</div>
+        
+        <div class="nav">
+            <button onclick="showSection('story')">Сказка</button>
+            <button onclick="showSection('test')">Тест</button>
+            <button onclick="showSection('gallery')">Картинки</button>
+            <button onclick="showSection('puzzle')">Пазл</button>
+            <button onclick="showSection('memory')">Игра на память</button>
+            <button onclick="showSection('quiz')">Викторина</button>
+            <button onclick="showSection('coloring')">Раскраска</button>
         </div>
 
-        <!-- Навигационное меню -->
-        <div class="nav-menu">
-            <button class="nav-btn stories" onclick="showSection('stories')">
-                📚 Сказки
-            </button>
-            <button class="nav-btn games" onclick="showSection('games')">
-                🎮 Игры
-            </button>
-            <button class="nav-btn quiz" onclick="showSection('quiz')">
-                🧩 Викторина
-            </button>
-            <button class="nav-btn draw" onclick="showSection('draw')">
-                🎨 Рисовалка
-            </button>
-        </div>
-
-        <!-- Секция историй -->
-        <div class="content-section active" id="stories">
-            <div class="stories-grid">
-                <div class="story-card" onclick="openStory(1)">
-                    <div class="story-emoji">🦁</div>
-                    <h3 class="story-title">Храбрый Львёнок</h3>
-                    <p class="story-preview">История о маленьком львёнке, который научился быть смелым...</p>
-                </div>
-                <div class="story-card" onclick="openStory(2)">
-                    <div class="story-emoji">🌟</div>
-                    <h3 class="story-title">Волшебная Звезда</h3>
-                    <p class="story-preview">Сказка о звёздочке, которая исполняла желания...</p>
-                </div>
-                <div class="story-card" onclick="openStory(3)">
-                    <div class="story-emoji">🐰</div>
-                    <h3 class="story-title">Весёлый Кролик</h3>
-                    <p class="story-preview">Приключения кролика в волшебном лесу...</p>
-                </div>
-                <div class="story-card" onclick="openStory(4)">
-                    <div class="story-emoji">🦋</div>
-                    <h3 class="story-title">Радужная Бабочка</h3>
-                    <p class="story-preview">История о бабочке, которая раскрашивала мир...</p>
-                </div>
+        <!-- Существующие разделы -->
+        <div id="story" class="content">
+            <h2>Приключения дружелюбного дракона</h2>
+            <div class="story">
+                <img src="https://images.unsplash.com/photo-1588943211347-0905a1b7634c" 
+                     alt="Дракон" style="width:100%">
+                <p>Жил-был дракон по имени Спайки. Он любил цветы и птичек...</p>
+                <p>Однажды он нашел потерявшегося котенка и вернул его домой...</p>
             </div>
         </div>
 
-        <!-- Секция игр -->
-        <div class="content-section" id="games">
-            <div class="game-container">
-                <h2 class="game-title">🎯 Найди пару!</h2>
-                <div class="memory-game" id="memoryGame">
-                    <!-- Карточки будут добавлены через JavaScript -->
-                </div>
-                <button class="nav-btn games" onclick="resetMemoryGame()" style="margin-top: 20px;">
-                    🔄 Новая игра
-                </button>
+        <div id="test" class="content">
+            <h2>Веселый тест 🐾</h2>
+            <div class="test">
+                <p>Сколько лап у котика?</p>
+                <button onclick="checkAnswer(4)" class="quiz-option">4</button>
+                <button onclick="checkAnswer(2)" class="quiz-option">2</button>
+                <p id="result" class="score"></p>
             </div>
         </div>
 
-        <!-- Секция викторины -->
-        <div class="content-section" id="quiz">
-            <div class="quiz-container">
-                <div class="quiz-image" id="quizImage">🐘</div>
-                <h2 class="quiz-question" id="quizQuestion">Какое животное самое большое?</h2>
-                <div class="quiz-options" id="quizOptions">
-                    <button class="quiz-option" onclick="checkAnswer(0)">Слон</button>
-                    <button class="quiz-option" onclick="checkAnswer(1)">Мышь</button>
-                    <button class="quiz-option" onclick="checkAnswer(2)">Кошка</button>
-                    <button class="quiz-option" onclick="checkAnswer(3)">Собака</button>
-                </div>
-                <button class="nav-btn quiz" onclick="nextQuestion()" style="margin-top: 20px;">
-                    ➡️ Следующий вопрос
-                </button>
+        <div id="gallery" class="content">
+            <h2>Моя галерея</h2>
+            <div class="gallery">
+                <img src="https://images.unsplash.com/photo-1514870712357-65ea720d6078" 
+                     onclick="showImage(this.src)">
+                <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5" 
+                     onclick="showImage(this.src)">
+                <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131" 
+                     onclick="showImage(this.src)">
             </div>
         </div>
 
-        <!-- Секция рисования -->
-        <div class="content-section" id="draw">
-            <div class="drawing-container">
-                <h2 class="game-title">🎨 Нарисуй свою картину!</h2>
-                <div class="drawing-tools">
-                    <button class="tool-btn" onclick="clearCanvas()">🗑️ Очистить</button>
-                    <button class="tool-btn" onclick="changeSize(5)">🖊️ Тонкая</button>
-                    <button class="tool-btn" onclick="changeSize(10)">🖌️ Средняя</button>
-                    <button class="tool-btn" onclick="changeSize(20)">🖍️ Толстая</button>
-                </div>
-                <div class="drawing-tools">
-                    <button class="color-btn" style="background: #FF6B6B;" onclick="changeColor('#FF6B6B')"></button>
-                    <button class="color-btn" style="background: #4ECDC4;" onclick="changeColor('#4ECDC4')"></button>
-                    <button class="color-btn" style="background: #45B7D1;" onclick="changeColor('#45B7D1')"></button>
-                    <button class="color-btn" style="background: #96CEB4;" onclick="changeColor('#96CEB4')"></button>
-                    <button class="color-btn" style="background: #FFEAA7;" onclick="changeColor('#FFEAA7')"></button>
-                    <button class="color-btn" style="background: #DDA0DD;" onclick="changeColor('#DDA0DD')"></button>
-                    <button class="color-btn" style="background: #F4A460;" onclick="changeColor('#F4A460')"></button>
-                    <button class="color-btn" style="background: #000000;" onclick="changeColor('#000000')"></button>
-                </div>
-                <canvas id="canvas" width="600" height="400"></canvas>
+        <!-- Новые игровые разделы -->
+        <div id="puzzle" class="content">
+            <h2>Собери пазл!</h2>
+            <div class="game-area" id="puzzle-board">
+                <!-- Пазл генерируется через JS -->
+            </div>
+        </div>
+
+        <div id="memory" class="content">
+            <h2>Игра на память</h2>
+            <div class="game-area" id="memory-game">
+                <!-- Карты генерируются через JS -->
+            </div>
+            <p class="score" id="memory-score">Очки: 0</p>
+        </div>
+
+        <div id="quiz" class="content">
+            <h2>Викторина: Знаешь ли ты животных?</h2>
+            <div id="quiz-container">
+                <!-- Вопросы генерируются через JS -->
+            </div>
+        </div>
+
+        <div id="coloring" class="content">
+            <h2>Волшебная раскраска</h2>
+            <div style="text-align: center">
+                <img src="https://images.unsplash.com/photo-1588943211347-0905a1b7634c" 
+                     style="width:80%; border:5px solid #ff69b4; border-radius:15px">
+                <p>Кликни по картинке, чтобы раскрасить!</p>
             </div>
         </div>
     </div>
 
-    <!-- Модальное окно для историй -->
-    <div class="story-modal" id="storyModal">
-        <div class="story-content">
-            <span class="close-modal" onclick="closeStory()">✖</span>
-            <div class="story-image" id="storyEmoji">🦁</div>
-            <h2 id="storyTitle">Заголовок истории</h2>
-            <div class="story-full" id="storyText">
-                Текст истории...
-            </div>
-        </div>
+    <div id="modal" class="modal" onclick="closeModal()">
+        <img id="modal-img">
     </div>
 
     <script>
-        // Глобальные переменные
-        let score = 0;
-        let soundEnabled = true;
-        let currentQuestionIndex = 0;
-        let memoryCards = [];
-        let flippedCards = [];
-        let matchedPairs = 0;
-
-        // Истории
-        const stories = {
-            1: {
-                title: "Храбрый Львёнок",
-                emoji: "🦁",
-                text: "Жил-был маленький львёнок по имени Лёва. Он боялся темноты и громких звуков. Но однажды его друг зайчонок потерялся в тёмном лесу. Лёва собрал всю свою храбрость и отправился на поиски. По пути он встретил мудрую сову 🦉, которая сказала: 'Храбрость - это не отсутствие страха, а умение идти вперёд несмотря на него'. Лёва нашёл друга и понял, что стал настоящим храбрецом! С тех пор он помогал всем, кто нуждался в помощи. 🌟"
-            },
-            2: {
-                title: "Волшебная Звезда",
-                emoji: "🌟",
-                text: "Высоко в небе жила маленькая звёздочка. Каждую ночь она слушала желания детей и старалась их исполнить. Одна девочка пожелала, чтобы её больная бабушка выздоровела. Звёздочка полетела к Луне 🌙 за волшебной пыльцой. Путь был долгий и трудный, но звёздочка не сдавалась. Она принесла волшебную пыльцу, и бабушка выздоровела! С тех пор звёздочка светит ярче всех, напоминая о том, что добрые дела делают мир лучше. ✨"
-            },
-            3: {
-                title: "Весёлый Кролик",
-                emoji: "🐰",
-                text: "В волшебном лесу жил кролик Прыг-Скок. Он любил прыгать и веселиться. Однажды он нашёл волшебную морковку 🥕, которая исполняла желания. Но вместо того, чтобы загадать что-то для себя, Прыг-Скок пожелал, чтобы все его друзья были счастливы. И случилось чудо! В лесу появилась радуга 🌈, расцвели цветы 🌸, и все звери стали улыбаться. Прыг-Скок понял, что самое большое счастье - делиться радостью с друзьями!"
-            },
-            4: {
-                title: "Радужная Бабочка",
-                emoji: "🦋",
-                text: "Жила-была бабочка, у которой были прозрачные крылышки. Все другие бабочки были яркими и красивыми, а она - нет. Но однажды она увидела, как плачет маленький цветок 🌻 - он был бесцветным. Бабочка решила помочь и полетела к радуге за красками. Радуга подарила ей волшебную кисточку 🎨. Бабочка раскрасила цветок, потом другие цветы, и весь луг стал разноцветным! А её крылышки стали переливаться всеми цветами радуги. Так она поняла, что красота приходит к тем, кто делает мир красивее!"
-            }
-        };
-
-        // Вопросы викторины
-        const quizQuestions = [
-            {
-                emoji: "🐘",
-                question: "Какое животное самое большое на суше?",
-                options: ["Слон", "Мышь", "Кошка", "Собака"],
-                correct: 0
-            },
-            {
-                emoji: "🌈",
-                question: "Сколько цветов в радуге?",
-                options: ["5", "7", "10", "3"],
-                correct: 1
-            },
-            {
-                emoji: "🍎",
-                question: "Какого цвета спелое яблоко?",
-                options: ["Синее", "Фиолетовое", "Красное", "Чёрное"],
-                correct: 2
-            },
-            {
-                emoji: "🐝",
-                question: "Что делают пчёлы?",
-                options: ["Мёд", "Молоко", "Хлеб", "Сыр"],
-                correct: 0
-            },
-            {
-                emoji: "🌙",
-                question: "Когда появляется луна?",
-                options: ["Днём", "Ночью", "Утром", "В обед"],
-                correct: 1
-            }
-        ];
-
-        // Эмодзи для игры памяти
-        const memoryEmojis = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼"];
-
-        // Инициализация
-        window.onload = function() {
-            setTimeout(() => {
-                document.getElementById('loader').classList.add('hidden');
-                initMemoryGame();
-                initCanvas();
-                playSound('start');
-            }, 2000);
-        };
-
-        // Переключение секций
+        // Основные функции
         function showSection(section) {
-            document.querySelectorAll('.content-section').forEach(s => {
-                s.classList.remove('active');
-            });
-            document.getElementById(section).classList.add('active');
-            playSound('click');
+            document.querySelectorAll('.content').forEach(el => 
+                el.style.display = 'none');
+            document.getElementById(section).style.display = 'block';
+            
+            // Инициализация игр при открытии
+            if(section === 'puzzle') initPuzzle();
+            if(section === 'memory') initMemoryGame();
+            if(section === 'quiz') initQuiz();
         }
 
-        // Открытие истории
-        function openStory(storyId) {
-            const story = stories[storyId];
-            document.getElementById('storyEmoji').textContent = story.emoji;
-            document.getElementById('storyTitle').textContent = story.title;
-            document.getElementById('storyText').innerHTML = story.text;
-            document.getElementById('storyModal').classList.add('active');
-            addScore(10);
-            playSound('open');
+        // Модальное окно
+        function showImage(src) {
+            document.getElementById('modal-img').src = src;
+            document.getElementById('modal').style.display = 'flex';
         }
 
-        // Закрытие истории
-        function closeStory() {
-            document.getElementById('storyModal').classList.remove('active');
-            playSound('close');
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
         }
 
-        // Инициализация игры памяти
+        // Пазл
+        function initPuzzle() {
+            const puzzleBoard = document.getElementById('puzzle-board');
+            puzzleBoard.innerHTML = '';
+            
+            // Генерация 9 пазлов
+            for(let i = 0; i < 9; i++) {
+                const piece = document.createElement('div');
+                piece.className = 'puzzle-piece';
+                piece.innerHTML = '🧩';
+                piece.onclick = () => alert('Клик по пазлу!');
+                puzzleBoard.appendChild(piece);
+            }
+        }
+
+        // Игра на память
+        let memoryScore = 0;
         function initMemoryGame() {
-            const gameContainer = document.getElementById('memoryGame');
-            gameContainer.innerHTML = '';
-            memoryCards = [];
-            flippedCards = [];
-            matchedPairs = 0;
+            const game = document.getElementById('memory-game');
+            game.innerHTML = '';
+            memoryScore = 0;
+            document.getElementById('memory-score').innerHTML = 'Очки: 0';
             
-            // Создаем пары карточек
-            const cards = [...memoryEmojis, ...memoryEmojis];
-            cards.sort(() => Math.random() - 0.5);
+            // Генерация 6 пар карт
+            const cards = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊'];
+            const shuffled = [...cards, ...cards].sort(() => Math.random() - 0.5);
             
-            cards.forEach((emoji, index) => {
+            shuffled.forEach((emoji, i) => {
                 const card = document.createElement('div');
                 card.className = 'memory-card';
-                card.dataset.emoji = emoji;
-                card.dataset.index = index;
-                card.innerHTML = `
-                    <div class="memory-card-front">?</div>
-                    <div class="memory-card-back">${emoji}</div>
-                `;
-                card.onclick = () => flipCard(card);
-                gameContainer.appendChild(card);
-                memoryCards.push(card);
+                card.innerHTML = '?';
+                card.onclick = () => flipCard(card, emoji);
+                game.appendChild(card);
             });
         }
 
-        // Переворот карточки
-        function flipCard(card) {
-            if (flippedCards.length >= 2) return;
-            if (card.classList.contains('flipped')) return;
-            if (card.classList.contains('matched')) return;
-            
-            card.classList.add('flipped');
-            flippedCards.push(card);
-            playSound('flip');
-            
-            if (flippedCards.length === 2) {
-                checkMatch();
+        function flipCard(card, emoji) {
+            if(card.innerHTML === '?') {
+                card.innerHTML = emoji;
+                memoryScore++;
+                document.getElementById('memory-score').innerHTML = `Очки: ${memoryScore}`;
             }
         }
 
-        // Проверка совпадения
-        function checkMatch() {
-            const [card1, card2] = flippedCards;
+        // Викторина
+        const quizQuestions = [
+            {
+                question: "Кто умеет летать?",
+                answers: ["🐶", "🦜", "🐭"],
+                correct: 1
+            },
+            {
+                question: "Какое животное любит сыр?",
+                answers: ["🐭", "🐯", "🐍"],
+                correct: 0
+            }
+        ];
+        let currentQuestion = 0;
+        
+        function initQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+            currentQuestion = 0;
             
-            if (card1.dataset.emoji === card2.dataset.emoji) {
-                setTimeout(() => {
-                    card1.classList.add('matched');
-                    card2.classList.add('matched');
-                    matchedPairs++;
-                    addScore(20);
-                    playSound('match');
-                    
-                    if (matchedPairs === memoryEmojis.length) {
-                        showAchievement("Игра пройдена!", "Ты нашёл все пары! 🎉");
-                        addScore(50);
-                    }
-                    
-                    flippedCards = [];
-                }, 500);
+            showQuizQuestion();
+        }
+
+        function showQuizQuestion() {
+            const q = quizQuestions[currentQuestion];
+            const container = document.getElementById('quiz-container');
+            
+            container.innerHTML = `
+                <h3>${q.question}</h3>
+                ${q.answers.map((answer, i) => `
+                    <div class="quiz-option" onclick="checkQuizAnswer(${i})">
+                        ${answer}
+                    </div>
+                `).join('')}
+            `;
+        }
+
+        function checkQuizAnswer(selected) {
+            if(selected === quizQuestions[currentQuestion].correct) {
+                alert('Правильно! 🎉');
+                currentQuestion++;
+                if(currentQuestion < quizQuestions.length) {
+                    showQuizQuestion();
+                } else {
+                    alert('Викторина завершена!');
+                }
             } else {
-                setTimeout(() => {
-                    card1.classList.remove('flipped');
-                    card2.classList.remove('flipped');
-                    flippedCards = [];
-                    playSound('wrong');
-                }, 1000);
+                alert('Попробуй еще раз! 😢');
             }
         }
 
-        // Сброс игры памяти
-        function resetMemoryGame() {
-            initMemoryGame();
-            playSound('reset');
-        }
-
-        // Проверка ответа викторины
-        function checkAnswer(optionIndex) {
-            const question = quizQuestions[currentQuestionIndex];
-            const options = document.querySelectorAll('.quiz-option');
-            
-            if (optionIndex === question.correct) {
-                options[optionIndex].classList.add('correct');
-                addScore(15);
-                playSound('correct');
-                showAchievement("Правильно!", "Отличный ответ! 🎯");
-            } else {
-                options[optionIndex].classList.add('wrong');
-                options[question.correct].classList.add('correct');
-                playSound('wrong');
-            }
-            
-            // Блокируем все кнопки
-            options.forEach(option => {
-                option.style.pointerEvents = 'none';
-            });
-        }
-
-        // Следующий вопрос
-        function nextQuestion() {
-            currentQuestionIndex = (currentQuestionIndex + 1) % quizQuestions.length;
-            const question = quizQuestions[currentQuestionIndex];
-            
-            document.getElementById('quizImage').textContent = question.emoji;
-            document.getElementById('quizQuestion').textContent = question.question;
-            
-            const optionsContainer = document.getElementById('quizOptions');
-            optionsContainer.innerHTML = '';
-            
-            question.options.forEach((option, index) => {
-                const button = document.createElement('button');
-                button.className = 'quiz-option';
-                button.textContent = option;
-                button.onclick = () => checkAnswer(index);
-                optionsContainer.appendChild(button);
-            });
-            
-            playSound('next');
-        }
-
-        // Инициализация холста для рисования
-        let canvas, ctx;
-        let isDrawing = false;
-        let currentColor = '#FF6B6B';
-        let currentSize = 10;
-
-        function initCanvas() {
-            canvas = document.getElementById('canvas');
-            ctx = canvas.getContext('2d');
-            
-            // Адаптивный размер холста
-            if (window.innerWidth < 768) {
-                canvas.width = window.innerWidth - 40;
-                canvas.height = 300;
-            }
-            
-            canvas.addEventListener('mousedown', startDrawing);
-            canvas.addEventListener('mousemove', draw);
-            canvas.addEventListener('mouseup', stopDrawing);
-            canvas.addEventListener('mouseout', stopDrawing);
-            
-            // Touch события для мобильных устройств
-            canvas.addEventListener('touchstart', handleTouch);
-            canvas.addEventListener('touchmove', handleTouch);
-            canvas.addEventListener('touchend', stopDrawing);
-        }
-
-        function startDrawing(e) {
-            isDrawing = true;
-            const rect = canvas.getBoundingClientRect();
-            ctx.beginPath();
-            ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
-        }
-
-        function draw(e) {
-            if (!isDrawing) return;
-            
-            const rect = canvas.getBoundingClientRect();
-            ctx.lineWidth = currentSize;
-            ctx.lineCap = 'round';
-            ctx.strokeStyle = currentColor;
-            ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
-            ctx.stroke();
-        }
-
-        function stopDrawing() {
-            isDrawing = false;
-        }
-
-        function handleTouch(e) {
-            e.preventDefault();
-            const touch = e.touches[0];
-            const mouseEvent = new MouseEvent(e.type === 'touchstart' ? 'mousedown' : 
-                                             e.type === 'touchmove' ? 'mousemove' : 'mouseup', {
-                clientX: touch.clientX,
-                clientY: touch.clientY
-            });
-            canvas.dispatchEvent(mouseEvent);
-        }
-
-        function clearCanvas() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            playSound('clear');
-            showAchievement("Чистый холст!", "Начни рисовать заново! 🎨");
-        }
-
-        function changeColor(color) {
-            currentColor = color;
-            document.querySelectorAll('.color-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            playSound('color');
-        }
-
-        function changeSize(size) {
-            currentSize = size;
-            playSound('size');
-        }
-
-        // Система очков
-        function addScore(points) {
-            score += points;
-            document.getElementById('scoreValue').textContent = score;
-            
-            // Анимация очков
-            const scoreElement = document.getElementById('scoreValue');
-            scoreElement.style.transform = 'scale(1.5)';
-            setTimeout(() => {
-                scoreElement.style.transform = 'scale(1)';
-            }, 300);
-        }
-
-        // Показ достижения
-        function showAchievement(title, text) {
-            const achievement = document.getElementById('achievement');
-            document.querySelector('.achievement-title').textContent = '🏆 ' + title;
-            document.getElementById('achievementText').textContent = text;
-            achievement.classList.add('show');
-            
-            setTimeout(() => {
-                achievement.classList.remove('show');
-            }, 3000);
-        }
-
-        // Управление звуком
-        function toggleSound() {
-            soundEnabled = !soundEnabled;
-            const btn = document.getElementById('soundBtn');
-            btn.textContent = soundEnabled ? '🔊' : '🔇';
-            btn.classList.toggle('muted');
-        }
-
-        // Воспроизведение звука (имитация)
-        function playSound(type) {
-            if (!soundEnabled) return;
-            
-            // В реальном приложении здесь были бы настоящие звуки
-            console.log('Playing sound:', type);
-            
-            // Визуальная обратная связь
-            const btn = document.getElementById('soundBtn');
-            btn.style.transform = 'scale(1.2)';
-            setTimeout(() => {
-                btn.style.transform = 'scale(1)';
-            }, 100);
-        }
-
-        // Клавиатурные сокращения
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeStory();
-            }
-        });
+        // Показываем сказку по умолчанию
+        showSection('story');
     </script>
 </body>
 </html>
