@@ -1,4 +1,1939 @@
-            { word: 'СОБАКА', hint: 'Лучший друг человека' },
+ Спасибо большое! 🎉 Рад, что понравилось! Сейчас добавлю ещё больше игр и викторин, сделаю настоящий детский развлекательный портал!
+
+<div style="border: 1px solid #e0e0e0; border-radius: 15px; padding: 20px; margin: 20px 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);">
+  <h2 style="color: white; margin: 0 0 10px 0;">🚀 МЕГА-ОБНОВЛЕНИЕ: 10+ новых игр и активностей!</h2>
+  <p style="color: #fff; margin: 0;">Полноценный детский развлекательный портал с обучающими играми</p>
+</div>
+
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌈 Волшебная Страна - Супер Портал для Детей!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Анимированный фон с частицами */
+        .particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            display: block;
+            pointer-events: none;
+            animation: float-up 10s infinite;
+        }
+
+        @keyframes float-up {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(0deg);
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh) rotate(720deg);
+            }
+        }
+
+        /* Анимированные облака */
+        .clouds {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cloud {
+            position: absolute;
+            background: white;
+            border-radius: 100px;
+            opacity: 0.4;
+            animation: float 20s infinite;
+        }
+
+        .cloud::before,
+        .cloud::after {
+            content: '';
+            position: absolute;
+            background: white;
+            border-radius: 100px;
+        }
+
+        .cloud1 {
+            width: 100px;
+            height: 40px;
+            top: 20%;
+            animation-duration: 25s;
+        }
+
+        .cloud1::before {
+            width: 50px;
+            height: 50px;
+            top: -25px;
+            left: 10px;
+        }
+
+        .cloud1::after {
+            width: 60px;
+            height: 40px;
+            top: -15px;
+            right: 10px;
+        }
+
+        .cloud2 {
+            width: 80px;
+            height: 35px;
+            top: 60%;
+            animation-duration: 30s;
+            animation-delay: 5s;
+        }
+
+        .cloud2::before {
+            width: 60px;
+            height: 45px;
+            top: -20px;
+            left: 15px;
+        }
+
+        .cloud2::after {
+            width: 50px;
+            height: 35px;
+            top: -10px;
+            right: 15px;
+        }
+
+        @keyframes float {
+            from {
+                left: -100px;
+            }
+            to {
+                left: calc(100% + 100px);
+            }
+        }
+
+        /* Основной контейнер */
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Заголовок */
+        .header {
+            text-align: center;
+            background: white;
+            border-radius: 30px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            animation: bounceIn 1s;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .title {
+            font-size: 3em;
+            background: linear-gradient(45deg, #f093fb, #f5576c, #4facfe, #00f2fe);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 3s ease infinite;
+            margin-bottom: 10px;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+        }
+
+        /* Категории игр */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .category-emoji {
+            font-size: 3em;
+            margin-bottom: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .category-name {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .category-count {
+            font-size: 0.9em;
+            color: #999;
+            margin-top: 5px;
+        }
+
+        /* Игровые карточки */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px) rotate(-2deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .game-header {
+            padding: 20px;
+            background: linear-gradient(135deg, var(--color1), var(--color2));
+            color: white;
+            text-align: center;
+        }
+
+        .game-icon {
+            font-size: 4em;
+            margin-bottom: 10px;
+            animation: wiggle 2s infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            75% { transform: rotate(-5deg); }
+        }
+
+        .game-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .game-description {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .game-body {
+            padding: 20px;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-right: 10px;
+        }
+
+        .difficulty.easy {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .difficulty.medium {
+            background: #FF9800;
+            color: white;
+        }
+
+        .difficulty.hard {
+            background: #F44336;
+            color: white;
+        }
+
+        .play-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 15px;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Модальные окна игр */
+        .game-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .game-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .game-content {
+            background: white;
+            border-radius: 30px;
+            padding: 30px;
+            max-width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.5s;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        /* Математическая игра */
+        .math-game {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .math-problem {
+            font-size: 3em;
+            margin: 20px 0;
+            color: #333;
+            animation: slideInLeft 0.5s;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .math-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .math-option {
+            padding: 20px;
+            font-size: 1.5em;
+            border: 3px solid #e0e0e0;
+            border-radius: 15px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .math-option:hover {
+            transform: scale(1.05);
+            border-color: #667eea;
+            background: linear-gradient(135deg, #f0f0ff 0%, #e0e0ff 100%);
+        }
+
+        /* Игра "Найди отличия" */
+        .spot-difference {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .image-container {
+            position: relative;
+            background: #f0f0f0;
+            border-radius: 15px;
+            padding: 20px;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5em;
+        }
+
+        .difference-spot {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 3px solid #ff6b6b;
+            border-radius: 50%;
+            cursor: pointer;
+            animation: pulse 1s infinite;
+        }
+
+        /* Лабиринт */
+        .maze-game {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .maze-grid {
+            display: inline-grid;
+            grid-template-columns: repeat(10, 40px);
+            gap: 2px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f0f0f0;
+            border-radius: 15px;
+        }
+
+        .maze-cell {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            transition: all 0.2s;
+        }
+
+        .maze-cell.wall {
+            background: #333;
+        }
+
+        .maze-cell.path {
+            background: #90EE90;
+        }
+
+        .maze-cell.player {
+            background: #FFD700;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .maze-cell.goal {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        /* Игра в слова */
+        .word-game {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .word-display {
+            font-size: 2em;
+            letter-spacing: 10px;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        .letter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .letter-btn {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            background: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .letter-btn:hover {
+            transform: scale(1.1);
+            background: #667eea;
+            color: white;
+        }
+
+        .letter-btn.used {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        /* Раскраска */
+        .coloring-game {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .coloring-grid {
+            display: inline-grid;
+            grid-template-columns: repeat(10, 30px);
+            gap: 1px;
+            margin: 20px auto;
+            background: #333;
+            padding: 1px;
+            border-radius: 10px;
+        }
+
+        .coloring-cell {
+            width: 30px;
+            height: 30px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .coloring-cell:hover {
+            transform: scale(1.2);
+            z-index: 10;
+        }
+
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .palette-color {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .palette-color:hover,
+        .palette-color.active {
+            transform: scale(1.2);
+            border-color: #333;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+
+        /* Музыкальная игра */
+        .music-game {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .piano-keys {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .piano-key {
+            width: 50px;
+            height: 200px;
+            background: white;
+            border: 2px solid #333;
+            margin: 0 2px;
+            cursor: pointer;
+            transition: all 0.1s;
+            position: relative;
+        }
+
+        .piano-key:hover {
+            background: #f0f0f0;
+        }
+
+        .piano-key:active {
+            background: #667eea;
+            transform: translateY(5px);
+        }
+
+        .piano-key.black {
+            width: 35px;
+            height: 120px;
+            background: #333;
+            margin-left: -20px;
+            margin-right: -20px;
+            z-index: 2;
+        }
+
+        .piano-key.black:hover {
+            background: #555;
+        }
+
+        .piano-key.black:active {
+            background: #764ba2;
+        }
+
+        /* Пазл */
+        .puzzle-game {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .puzzle-grid {
+            display: inline-grid;
+            grid-template-columns: repeat(3, 100px);
+            gap: 5px;
+            margin: 20px auto;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 15px;
+        }
+
+        .puzzle-piece {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .puzzle-piece:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .puzzle-piece.empty {
+            background: transparent;
+            border: 2px dashed #999;
+        }
+
+        /* Танцевальная игра */
+        .dance-game {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .dance-floor {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            gap: 10px;
+            margin: 20px auto;
+            justify-content: center;
+        }
+
+        .dance-arrow {
+            width: 100px;
+            height: 100px;
+            background: #f0f0f0;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            transition: all 0.3s;
+        }
+
+        .dance-arrow.active {
+            background: linear-gradient(135deg, #FFE985, #FA742B);
+            animation: danceMove 0.5s;
+        }
+
+        @keyframes danceMove {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3) rotate(10deg); }
+        }
+
+        /* Система достижений */
+        .achievements {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 300px;
+            z-index: 100;
+            animation: slideInRight 0.5s;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .achievement-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            animation: fadeInUp 0.5s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .achievement-icon {
+            font-size: 2em;
+            margin-right: 15px;
+        }
+
+        .achievement-info h4 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .achievement-info p {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* Таблица лидеров */
+        .leaderboard {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+
+        .leaderboard h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .leader-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f0f0f0;
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .leader-item:hover {
+            transform: translateX(10px);
+            background: linear-gradient(135deg, #f0f0ff 0%, #e0e0ff 100%);
+        }
+
+        .leader-rank {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-right: 20px;
+            color: #667eea;
+        }
+
+        .leader-rank.gold {
+            color: #FFD700;
+        }
+
+        .leader-rank.silver {
+            color: #C0C0C0;
+        }
+
+        .leader-rank.bronze {
+            color: #CD7F32;
+        }
+
+        .leader-name {
+            flex: 1;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .leader-score {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #764ba2;
+        }
+
+        /* Прогресс бар */
+        .progress-container {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .progress-bar {
+            height: 30px;
+            background: #f0f0f0;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            background-size: 200% 100%;
+            border-radius: 15px;
+            transition: width 1s ease;
+            animation: progressAnimation 2s linear infinite;
+        }
+
+        @keyframes progressAnimation {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .title {
+                font-size: 2em;
+            }
+            
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .achievements {
+                position: static;
+                margin: 20px 0;
+                max-width: 100%;
+            }
+            
+            .maze-grid {
+                grid-template-columns: repeat(8, 35px);
+            }
+            
+            .maze-cell {
+                width: 35px;
+                height: 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Анимированные частицы -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Анимированные облака -->
+    <div class="clouds">
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+    </div>
+
+    <!-- Основной контейнер -->
+    <div class="container">
+        <!-- Заголовок -->
+        <div class="header">
+            <h1 class="title">🌈 Волшебная Страна</h1>
+            <p class="subtitle">Более 15 увлекательных игр для детей!</p>
+        </div>
+
+        <!-- Прогресс бар -->
+        <div class="progress-container">
+            <div class="progress-label">
+                <span>🎯 Твой прогресс</span>
+                <span id="levelText">Уровень 1</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%">
+                    <span class="progress-text" id="progressText">0%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Категории -->
+        <div class="categories">
+            <div class="category-card" onclick="filterGames('all')">
+                <div class="category-emoji">🎮</div>
+                <div class="category-name">Все игры</div>
+                <div class="category-count">15+ игр</div>
+            </div>
+            <div class="category-card" onclick="filterGames('math')">
+                <div class="category-emoji">🔢</div>
+                <div class="category-name">Математика</div>
+                <div class="category-count">3 игры</div>
+            </div>
+            <div class="category-card" onclick="filterGames('puzzle')">
+                <div class="category-emoji">🧩</div>
+                <div class="category-name">Головоломки</div>
+                <div class="category-count">4 игры</div>
+            </div>
+            <div class="category-card" onclick="filterGames('creative')">
+                <div class="category-emoji">🎨</div>
+                <div class="category-name">Творчество</div>
+                <div class="category-count">3 игры</div>
+            </div>
+            <div class="category-card" onclick="filterGames('music')">
+                <div class="category-emoji">🎵</div>
+                <div class="category-name">Музыка</div>
+                <div class="category-count">2 игры</div>
+            </div>
+            <div class="category-card" onclick="filterGames('words')">
+                <div class="category-emoji">📝</div>
+                <div class="category-name">Слова</div>
+                <div class="category-count">3 игры</div>
+            </div>
+        </div>
+
+        <!-- Сетка игр -->
+        <div class="games-grid" id="gamesGrid">
+            <!-- Математические игры -->
+            <div class="game-card" data-category="math" style="--color1: #4CAF50; --color2: #8BC34A;">
+                <div class="game-header">
+                    <div class="game-icon">➕</div>
+                    <div class="game-title">Весёлый счёт</div>
+                    <div class="game-description">Решай примеры и получай звёзды!</div>
+                </div>
+                <div class="game-body">
+                    <span class="difficulty easy">Легко</span>
+                    <span class="difficulty medium">Средне</span>
+                    <button class="play-btn" onclick="openGame('math')">Играть!</button>
+                </div>
+            </div>
+
+            <div class="game-card" data-category="math" style="--color1: #FF9800; --color2: #FFB74D;">
+                <div class="game-header">
+                    <div class="game-icon">🔢</div>
+                    <div class="game-title">Таблица умножения</div>
+                    <div class="game-description">Учи таблицу умножения играя!</div>
+                </div>
+                <div class="game-body">
+                    <span class="difficulty medium">Средне</span>
+                    <button class="play-btn" onclick="openGame('multiplication')">Играть!</button>
+                </div>
+            </div>
+
+            <div class="game-card" data-category="math" style="--color1: #9C27B0; --color2: #BA68C8;">
+                <div class="game-header">
+                    <div class="game-icon">🎲</div>
+                    <div class="game-title">Угадай число</div>
+                    <div class="game-description">Отгадай загаданное число!</div>
+                </div>
+                <div class="game-body">
+                    <span class="difficulty easy">Легко</span>
+                    <button class="play-btn" onclick="openGame('guess')">Играть!</button>
+                </div>
+            </div>
+
+            <!-- Головоломки -->
+            <div class="game-card" data-category="puzzle" style="--color1: #2196F3; --color2: #64B5F6;">
+                <div class="game-header">
+                    <div class="game-icon">🧩</div>
+                    <div class="game-title">Пазлы</div>
+                    <div class="game-description">Собери картинку из кусочков!</div>
+                </div>
+                <div class="game-body">
+                    <span class="difficulty medium">Средне</span>
+                    <button class="play-btn" onclick="openGame('puzzle')">Играть!</button>
+                </div>
+            </div>
+
+            <div class="game-card" data-category="puzzle" style="--color1: #00BCD4; --color2: #4DD0E1;">
+                <div class="game-header">
+                    <div class="game-icon">🔍</div>
+                    <div class="game-title">Найди отличия</div>
+                    <div class="game-description">Найди все отличия между картинками!</div>
+                </div>
+                <div class="game-body">
+                    <span class="difficulty easy">Легко</span>
+                    <button class="play-btn" onclick="openGame('differences')">Играть!</button>
+                </div>
+            </div>
+
+            <div class="game-card" data-category="puzzle" style="--color1: #009688; --color2: #4DB6AC;">
+                <div class="game-header">
+                    <div class="game-icon">🗺️</div>
+                    <div class="game-title">Лабиринт</div>
+                    <div class="game-description">Найди выход из лабиринта!</div>
+                </div>
+                <div class="game-body">
+                    <span class="difficulty hard">Сложно</span>
+                    <button class="play-btn" onclick="openGame('maze')">Играть!</button>
+                </div>
+            </div>
+
+            <div class="game-card" data-category="puzzle" style="--color1: #3F51B5; --color2: #7986CB;">
+                <div class="game-header">
+                    <div class="game-icon">🎯</div>
+                    <div class="game-title">Память</div>
+                    <div class="game-description">Запомни и повтори последовательность!</div>
+                </div>
+                <div class="game-body">
+                    <span class="difficulty medium">Средне</span>
+                    <button class="play-btn" onclick="openGame('simon')">Играть!</button>
+                </div>
+            </div>
+
+            <!-- Творческие игры -->
+            <div class="game-card" data-category="creative" style="--color1: #E91E63; --color2: #F06292;">
+                <div class="game-header">
+                    <div class="game-icon">🎨</div>
+                    <div class="game-title">Раскраска</div>
+                    <div class="game-description">Раскрась картинки яркими цветами!</div>
+                </div>
+                <div class="game-body">
+                    <span class="difficulty easy">Легко</span>
+                    <button class="play-btn" onclick="openGame('coloring')">Играть!</button>
+                </div>
+            </div>
+
+            <div class="game-card" data-category="creative" style="--color1: #FF5722; --color2: #FF8A65;">
+                <div class="game-header">
+                    <div class="game-icon">✏️</div>
+                    <div class="game-title">Рисовалка</div>
+                    <div class="game-description">Создай свой шедевр!</div>
+                </div>
+                <div class="game-body">
+                    <span class="difficulty easy">Легко</span>
+                    <button class="play-btn" onclick="openGame('drawing')">Играть!</button>
+                </div>
+            </div>
+
+            <div class="game-card" data-category="creative" style="--color1: #795548; --color2: #A1887F;">
+                <div class="game-header">
+                    <div class="game-icon">🏗️</div>
+                    <div class="game-title">Конструктор</div>
+                    <div class="game-description">Строй из блоков!</div>
+                </div>
+                <div class="game-body">
+                    <span class="difficulty medium">Средне</span>
+                    <button class="play-btn" onclick="openGame('builder')">Играть!</button>
+                </div>
+            </div>
+
+            <!-- Музыкальные игры -->
+            <div class="game-card" data-category="music" style="--color1: #673AB7; --color2: #9575CD;">
+                <div class="game-header">
+                    <div class="game-icon">🎹</div>
+                    <div class="game-title">Пианино</div>
+                    <div class="game-description">Играй мелодии на пианино!</div>
+                </div>
+                <div class="game-body">
+                    <span class="difficulty easy">Легко</span>
+                    <button class="play-btn" onclick="openGame('piano')">Играть!</button>
+                </div>
+            </div>
+
+            <div class="game-card" data-category="music" style="--color1: #FFC107; --color2: #FFD54F;">
+                <div class="game-header">
+                    <div class="game-icon">💃</div>
+                    <div class="game-title">Танцы</div>
+                    <div class="game-description">Повторяй танцевальные движения!</div>
+                </div>
+                <div class="game-body">
+                    <span class="difficulty medium">Средне</span>
+                    <button class="play-btn" onclick="openGame('dance')">Играть!</button>
+                </div>
+            </div>
+
+            <!-- Игры со словами -->
+            <div class="game-card" data-category="words" style="--color1: #607D8B; --color2: #90A4AE;">
+                <div class="game-header">
+                    <div class="game-icon">📝</div>
+                    <div class="game-title">Угадай слово</div>
+                    <div class="game-description">Отгадывай слова по буквам!</div>
+                </div>
+                <div class="game-body">
+                    <span class="difficulty medium">Средне</span>
+                    <button class="play-btn" onclick="openGame('words')">Играть!</button>
+                </div>
+            </div>
+
+            <div class="game-card" data-category="words" style="--color1: #FF6B6B; --color2: #FF8E53;">
+                <div class="game-header">
+                    <div class="game-icon">📚</div>
+                    <div class="game-title">Алфавит</div>
+                    <div class="game-description">Учи буквы весело!</div>
+                </div>
+                <div class="game-body">
+                    <span class="difficulty easy">Легко</span>
+                    <button class="play-btn" onclick="openGame('alphabet')">Играть!</button>
+                </div>
+            </div>
+
+            <div class="game-card" data-category="words" style="--color1: #4ECDC4; --color2: #44A08D;">
+                <div class="game-header">
+                    <div class="game-icon">🔤</div>
+                    <div class="game-title">Составь слова</div>
+                    <div class="game-description">Создавай слова из букв!</div>
+                </div>
+                <div class="game-body">
+                    <span class="difficulty hard">Сложно</span>
+                    <button class="play-btn" onclick="openGame('wordmaker')">Играть!</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Таблица лидеров -->
+        <div class="leaderboard">
+            <h2>🏆 Лучшие игроки</h2>
+            <div class="leader-item">
+                <span class="leader-rank gold">1</span>
+                <span class="leader-name">🦁 Супер Лев</span>
+                <span class="leader-score">9850 ⭐</span>
+            </div>
+            <div class="leader-item">
+                <span class="leader-rank silver">2</span>
+                <span class="leader-name">🦄 Единорожка</span>
+                <span class="leader-score">8720 ⭐</span>
+            </div>
+            <div class="leader-item">
+                <span class="leader-rank bronze">3</span>
+                <span class="leader-name">🐰 Быстрый Кролик</span>
+                <span class="leader-score">7650 ⭐</span>
+            </div>
+            <div class="leader-item">
+                <span class="leader-rank">4</span>
+                <span class="leader-name">🦋 Радужная Бабочка</span>
+                <span class="leader-score">6543 ⭐</span>
+            </div>
+            <div class="leader-item">
+                <span class="leader-rank">5</span>
+                <span class="leader-name">🐻 Мишка</span>
+                <span class="leader-score">5432 ⭐</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Панель достижений -->
+    <div class="achievements" id="achievements" style="display: none;">
+        <h3>🏅 Твои достижения</h3>
+        <div class="achievement-item">
+            <div class="achievement-icon">🌟</div>
+            <div class="achievement-info">
+                <h4>Первая победа!</h4>
+                <p>Выиграл первую игру</p>
+            </div>
+        </div>
+        <div class="achievement-item">
+            <div class="achievement-icon">🎯</div>
+            <div class="achievement-info">
+                <h4>Меткий стрелок</h4>
+                <p>10 правильных ответов подряд</p>
+            </div>
+        </div>
+        <div class="achievement-item">
+            <div class="achievement-icon">🚀</div>
+            <div class="achievement-info">
+                <h4>Скорость света</h4>
+                <p>Решил задачу за 5 секунд</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальные окна для игр -->
+    <div class="game-modal" id="gameModal">
+        <div class="game-content">
+            <button class="close-btn" onclick="closeGame()">✖</button>
+            <div id="gameContainer">
+                <!-- Контент игры будет загружаться динамически -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Глобальные переменные
+        let currentGame = null;
+        let score = 0;
+        let level = 1;
+        let progress = 0;
+
+        // Инициализация
+        window.onload = function() {
+            createParticles();
+            updateProgress(0);
+            setTimeout(() => {
+                showAchievements();
+            }, 2000);
+        };
+
+        // Создание частиц
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const emojis = ['⭐', '🌟', '✨', '💫', '🎈', '🎉', '🦋', '🌈'];
+            
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('span');
+                particle.className = 'particle';
+                particle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                particle.style.fontSize = Math.random() * 20 + 20 + 'px';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Фильтрация игр
+        function filterGames(category) {
+            const games = document.querySelectorAll('.game-card');
+            
+            games.forEach(game => {
+                if (category === 'all' || game.dataset.category === category) {
+                    game.style.display = 'block';
+                    game.style.animation = 'fadeIn 0.5s';
+                } else {
+                    game.style.display = 'none';
+                }
+            });
+        }
+
+        // Открытие игры
+        function openGame(gameType) {
+            currentGame = gameType;
+            const modal = document.getElementById('gameModal');
+            const container = document.getElementById('gameContainer');
+            
+            // Загружаем контент игры
+            container.innerHTML = getGameContent(gameType);
+            modal.classList.add('active');
+            
+            // Инициализируем игру
+            initGame(gameType);
+        }
+
+        // Закрытие игры
+        function closeGame() {
+            document.getElementById('gameModal').classList.remove('active');
+            currentGame = null;
+        }
+
+        // Получение контента игры
+        function getGameContent(gameType) {
+            const games = {
+                math: `
+                    <div class="math-game">
+                        <h2>➕ Весёлый счёт</h2>
+                        <div class="math-problem" id="mathProblem">5 + 3 = ?</div>
+                        <div class="math-options" id="mathOptions">
+                            <button class="math-option" onclick="checkMathAnswer(8)">8</button>
+                            <button class="math-option" onclick="checkMathAnswer(7)">7</button>
+                            <button class="math-option" onclick="checkMathAnswer(9)">9</button>
+                            <button class="math-option" onclick="checkMathAnswer(6)">6</button>
+                        </div>
+                        <div style="margin-top: 20px; font-size: 1.5em;">
+                            Счёт: <span id="mathScore">0</span> ⭐
+                        </div>
+                    </div>
+                `,
+                multiplication: `
+                    <div class="math-game">
+                        <h2>🔢 Таблица умножения</h2>
+                        <div class="math-problem" id="multiProblem">3 × 4 = ?</div>
+                        <div class="math-options" id="multiOptions">
+                            <button class="math-option" onclick="checkMultiAnswer(12)">12</button>
+                            <button class="math-option" onclick="checkMultiAnswer(10)">10</button>
+                            <button class="math-option" onclick="checkMultiAnswer(14)">14</button>
+                            <button class="math-option" onclick="checkMultiAnswer(11)">11</button>
+                        </div>
+                        <div style="margin-top: 20px; font-size: 1.5em;">
+                            Правильных: <span id="multiScore">0</span> ✅
+                        </div>
+                    </div>
+                `,
+                guess: `
+                    <div class="math-game">
+                        <h2>🎲 Угадай число</h2>
+                        <p style="font-size: 1.2em; color: #666;">Я загадал число от 1 до 100!</p>
+                        <input type="number" id="guessInput" min="1" max="100" style="font-size: 2em; width: 150px; padding: 10px; border-radius: 10px; border: 2px solid #667eea; text-align: center; margin: 20px;">
+                        <button onclick="checkGuess()" style="font-size: 1.2em; padding: 15px 30px; border: none; border-radius: 10px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; cursor: pointer;">Проверить!</button>
+                        <div id="guessHint" style="margin-top: 20px; font-size: 1.3em; color: #666;"></div>
+                        <div style="margin-top: 20px; font-size: 1.2em;">
+                            Попыток: <span id="guessAttempts">0</span>
+                        </div>
+                    </div>
+                `,
+                puzzle: `
+                    <div class="puzzle-game">
+                        <h2>🧩 Пазлы</h2>
+                        <p>Нажимай на кусочки, чтобы поменять их местами!</p>
+                        <div class="puzzle-grid" id="puzzleGrid">
+                            <div class="puzzle-piece" onclick="movePuzzlePiece(0)">1</div>
+                            <div class="puzzle-piece" onclick="movePuzzlePiece(1)">2</div>
+                            <div class="puzzle-piece" onclick="movePuzzlePiece(2)">3</div>
+                            <div class="puzzle-piece" onclick="movePuzzlePiece(3)">4</div>
+                            <div class="puzzle-piece" onclick="movePuzzlePiece(4)">5</div>
+                            <div class="puzzle-piece" onclick="movePuzzlePiece(5)">6</div>
+                            <div class="puzzle-piece" onclick="movePuzzlePiece(6)">7</div>
+                            <div class="puzzle-piece" onclick="movePuzzlePiece(7)">8</div>
+                            <div class="puzzle-piece empty" onclick="movePuzzlePiece(8)"></div>
+                        </div>
+                        <button onclick="shufflePuzzle()" style="margin-top: 20px; padding: 10px 20px; font-size: 1.1em; border: none; border-radius: 10px; background: #4CAF50; color: white; cursor: pointer;">Перемешать</button>
+                    </div>
+                `,
+                differences: `
+                    <div class="spot-difference">
+                        <div class="image-container">
+                            <span>🏠</span>
+                            <div class="difference-spot" style="top: 30%; left: 20%;" onclick="foundDifference(this)"></div>
+                        </div>
+                        <div class="image-container">
+                            <span>🏡</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 20px; font-size: 1.3em;">
+                        Найдено отличий: <span id="differencesFound">0</span> / 5
+                    </div>
+                `,
+                maze: `
+                    <div class="maze-game">
+                        <h2>🗺️ Лабиринт</h2>
+                        <p>Используй стрелки на клавиатуре или кнопки для движения!</p>
+                        <div class="maze-grid" id="mazeGrid"></div>
+                        <div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+                            <button onclick="moveMaze('up')" style="padding: 15px 20px; font-size: 1.5em; border: none; border-radius: 10px; background: #4CAF50; color: white; cursor: pointer;">⬆️</button>
+                            <button onclick="moveMaze('down')" style="padding: 15px 20px; font-size: 1.5em; border: none; border-radius: 10px; background: #4CAF50; color: white; cursor: pointer;">⬇️</button>
+                            <button onclick="moveMaze('left')" style="padding: 15px 20px; font-size: 1.5em; border: none; border-radius: 10px; background: #4CAF50; color: white; cursor: pointer;">⬅️</button>
+                            <button onclick="moveMaze('right')" style="padding: 15px 20px; font-size: 1.5em; border: none; border-radius: 10px; background: #4CAF50; color: white; cursor: pointer;">➡️</button>
+                        </div>
+                    </div>
+                `,
+                simon: `
+                    <div class="dance-game">
+                        <h2>🎯 Запомни последовательность</h2>
+                        <p id="simonMessage">Смотри внимательно и повторяй!</p>
+                        <div class="dance-floor">
+                            <div class="dance-arrow" id="simon0" onclick="simonClick(0)" style="background: #FF6B6B;">🔴</div>
+                            <div class="dance-arrow" id="simon1" onclick="simonClick(1)" style="background: #4ECDC4;">🔵</div>
+                            <div class="dance-arrow" id="simon2" onclick="simonClick(2)" style="background: #95E77E;">🟢</div>
+                            <div class="dance-arrow" id="simon3" onclick="simonClick(3)" style="background: #FFD93D;">🟡</div>
+                        </div>
+                        <button onclick="startSimon()" style="margin-top: 20px; padding: 15px 30px; font-size: 1.2em; border: none; border-radius: 10px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; cursor: pointer;">Начать игру</button>
+                        <div style="margin-top: 20px; font-size: 1.3em;">
+                            Уровень: <span id="simonLevel">1</span>
+                        </div>
+                    </div>
+                `,
+                coloring: `
+                    <div class="coloring-game">
+                        <h2>🎨 Раскраска</h2>
+                        <div class="color-palette">
+                            <div class="palette-color active" style="background: #FF6B6B;" onclick="selectColor('#FF6B6B')"></div>
+                            <div class="palette-color" style="background: #4ECDC4;" onclick="selectColor('#4ECDC4')"></div>
+                            <div class="palette-color" style="background: #95E77E;" onclick="selectColor('#95E77E')"></div>
+                            <div class="palette-color" style="background: #FFD93D;" onclick="selectColor('#FFD93D')"></div>
+                            <div class="palette-color" style="background: #A78BFA;" onclick="selectColor('#A78BFA')"></div>
+                            <div class="palette-color" style="background: #FB923C;" onclick="selectColor('#FB923C')"></div>
+                            <div class="palette-color" style="background: #EC4899;" onclick="selectColor('#EC4899')"></div>
+                            <div class="palette-color" style="background: white; border: 2px solid #ddd;" onclick="selectColor('white')"></div>
+                        </div>
+                        <div class="coloring-grid" id="coloringGrid"></div>
+                        <button onclick="clearColoring()" style="margin-top: 20px; padding: 10px 20px; font-size: 1.1em; border: none; border-radius: 10px; background: #F44336; color: white; cursor: pointer;">Очистить</button>
+                    </div>
+                `,
+                piano: `
+                    <div class="music-game">
+                        <h2>🎹 Пианино</h2>
+                        <p>Нажимай на клавиши и создавай музыку!</p>
+                        <div class="piano-keys">
+                            <div class="piano-key" onclick="playNote('C')"></div>
+                            <div class="piano-key black" onclick="playNote('C#')"></div>
+                            <div class="piano-key" onclick="playNote('D')"></div>
+                            <div class="piano-key black" onclick="playNote('D#')"></div>
+                            <div class="piano-key" onclick="playNote('E')"></div>
+                            <div class="piano-key" onclick="playNote('F')"></div>
+                            <div class="piano-key black" onclick="playNote('F#')"></div>
+                            <div class="piano-key" onclick="playNote('G')"></div>
+                            <div class="piano-key black" onclick="playNote('G#')"></div>
+                            <div class="piano-key" onclick="playNote('A')"></div>
+                            <div class="piano-key black" onclick="playNote('A#')"></div>
+                            <div class="piano-key" onclick="playNote('B')"></div>
+                        </div>
+                        <div style="margin-top: 20px; text-align: center; font-size: 1.2em;">
+                            Последняя нота: <span id="lastNote">-</span>
+                        </div>
+                    </div>
+                `,
+                dance: `
+                    <div class="dance-game">
+                        <h2>💃 Танцы</h2>
+                        <p>Повторяй движения в правильном порядке!</p>
+                        <div class="dance-floor">
+                            <div class="dance-arrow" id="arrow0">⬆️</div>
+                            <div class="dance-arrow" id="arrow1">⬇️</div>
+                            <div class="dance-arrow" id="arrow2">⬅️</div>
+                            <div class="dance-arrow" id="arrow3">➡️</div>
+                            <div class="dance-arrow" id="arrow4">↗️</div>
+                            <div class="dance-arrow" id="arrow5">↘️</div>
+                            <div class="dance-arrow" id="arrow6">↙️</div>
+                            <div class="dance-arrow" id="arrow7">↖️</div>
+                            <div class="dance-arrow" id="arrow8">🔄</div>
+                        </div>
+                        <button onclick="startDance()" style="margin-top: 20px; padding: 15px 30px; font-size: 1.2em; border: none; border-radius: 10px; background: linear-gradient(135deg, #FFE985, #FA742B); color: white; cursor: pointer;">Начать танец!</button>
+                        <div style="margin-top: 20px; font-size: 1.3em;">
+                            Комбо: <span id="danceCombo">0</span> 🔥
+                        </div>
+                    </div>
+                `,
+                words: `
+                    <div class="word-game">
+                        <h2>📝 Угадай слово</h2>
+                        <div class="word-display" id="wordDisplay">_ _ _ _ _</div>
+                        <p style="font-size: 1.2em; color: #666;">Подсказка: <span id="wordHint">Домашнее животное</span></p>
+                        <div class="letter-buttons" id="letterButtons"></div>
+                        <div style="margin-top: 20px; font-size: 1.3em;">
+                            Осталось попыток: <span id="wordAttempts">6</span> ❤️
+                        </div>
+                    </div>
+                `,
+                alphabet: `
+                    <div class="word-game">
+                        <h2>📚 Алфавит</h2>
+                        <p style="font-size: 1.5em;">Найди букву: <span id="targetLetter" style="font-size: 2em; color: #667eea;">А</span></p>
+                        <div class="letter-buttons" id="alphabetButtons"></div>
+                        <div style="margin-top: 20px; font-size: 1.3em;">
+                            Найдено: <span id="alphabetScore">0</span> / 33
+                        </div>
+                    </div>
+                `,
+                wordmaker: `
+                    <div class="word-game">
+                        <h2>🔤 Составь слова</h2>
+                        <p style="font-size: 1.3em;">Используй эти буквы: <span style="font-size: 1.5em; color: #667eea;">К О Т А Р</span></p>
+                        <input type="text" id="wordInput" style="font-size: 1.5em; padding: 10px; border-radius: 10px; border: 2px solid #667eea; text-align: center; margin: 20px;">
+                        <button onclick="checkWord()" style="font-size: 1.2em; padding: 15px 30px; border: none; border-radius: 10px; background: linear-gradient(135deg, #4ECDC4, #44A08D); color: white; cursor: pointer;">Проверить слово</button>
+                        <div id="foundWords" style="margin-top: 20px;">
+                            <h3>Найденные слова:</h3>
+                            <div id="wordsList" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;"></div>
+                        </div>
+                    </div>
+                `
+            };
+            
+            return games[gameType] || '<p>Игра в разработке...</p>';
+        }
+
+        // Инициализация игр
+        function initGame(gameType) {
+            switch(gameType) {
+                case 'math':
+                    generateMathProblem();
+                    break;
+                case 'multiplication':
+                    generateMultiplication();
+                    break;
+                case 'guess':
+                    window.targetNumber = Math.floor(Math.random() * 100) + 1;
+                    window.guessAttempts = 0;
+                    break;
+                case 'puzzle':
+                    shufflePuzzle();
+                    break;
+                case 'maze':
+                    generateMaze();
+                    break;
+                case 'coloring':
+                    generateColoringGrid();
+                    break;
+                case 'words':
+                    initWordGame();
+                    break;
+                case 'alphabet':
+                    initAlphabet();
+                    break;
+                case 'simon':
+                    window.simonSequence = [];
+                    window.playerSequence = [];
+                    window.simonLevel = 1;
+                    break;
+            }
+        }
+
+        // Математическая игра
+        let mathScore = 0;
+        function generateMathProblem() {
+            const a = Math.floor(Math.random() * 10) + 1;
+            const b = Math.floor(Math.random() * 10) + 1;
+            const answer = a + b;
+            
+            document.getElementById('mathProblem').textContent = `${a} + ${b} = ?`;
+            
+            const options = [answer];
+            while (options.length < 4) {
+                const wrong = Math.floor(Math.random() * 20) + 1;
+                if (!options.includes(wrong)) {
+                    options.push(wrong);
+                }
+            }
+            
+            options.sort(() => Math.random() - 0.5);
+            
+            const optionsHtml = options.map(opt => 
+                `<button class="math-option" onclick="checkMathAnswer(${opt}, ${answer})">${opt}</button>`
+            ).join('');
+            
+            document.getElementById('mathOptions').innerHTML = optionsHtml;
+        }
+
+        function checkMathAnswer(selected, correct) {
+            if (selected === correct) {
+                mathScore += 10;
+                document.getElementById('mathScore').textContent = mathScore;
+                updateProgress(5);
+                showNotification('Правильно! 🎉', 'success');
+                setTimeout(() => generateMathProblem(), 1000);
+            } else {
+                showNotification('Попробуй ещё раз! 🤔', 'error');
+            }
+        }
+
+        // Таблица умножения
+        let multiScore = 0;
+        function generateMultiplication() {
+            const a = Math.floor(Math.random() * 9) + 1;
+            const b = Math.floor(Math.random() * 9) + 1;
+            const answer = a * b;
+            
+            document.getElementById('multiProblem').textContent = `${a} × ${b} = ?`;
+            
+            const options = [answer];
+            while (options.length < 4) {
+                const wrong = Math.floor(Math.random() * 81) + 1;
+                if (!options.includes(wrong)) {
+                    options.push(wrong);
+                }
+            }
+            
+            options.sort(() => Math.random() - 0.5);
+            
+            const optionsHtml = options.map(opt => 
+                `<button class="math-option" onclick="checkMultiAnswer(${opt}, ${answer})">${opt}</button>`
+            ).join('');
+            
+            document.getElementById('multiOptions').innerHTML = optionsHtml;
+        }
+
+        function checkMultiAnswer(selected, correct) {
+            if (selected === correct) {
+                multiScore++;
+                document.getElementById('multiScore').textContent = multiScore;
+                updateProgress(7);
+                showNotification('Отлично! ✨', 'success');
+                setTimeout(() => generateMultiplication(), 1000);
+            } else {
+                showNotification('Не правильно! 😅', 'error');
+            }
+        }
+
+        // Угадай число
+        function checkGuess() {
+            const guess = parseInt(document.getElementById('guessInput').value);
+            const hint = document.getElementById('guessHint');
+            window.guessAttempts++;
+            document.getElementById('guessAttempts').textContent = window.guessAttempts;
+            
+            if (guess === window.targetNumber) {
+                hint.textContent = `🎉 Правильно! Это было число ${window.targetNumber}!`;
+                hint.style.color = '#4CAF50';
+                updateProgress(10);
+            } else if (guess < window.targetNumber) {
+                hint.textContent = '⬆️ Загаданное число больше!';
+                hint.style.color = '#FF9800';
+            } else {
+                hint.textContent = '⬇️ Загаданное число меньше!';
+                hint.style.color = '#2196F3';
+            }
+        }
+
+        // Пазлы
+        let puzzleState = [1, 2, 3, 4, 5, 6, 7, 8, 0];
+        let emptyIndex = 8;
+
+        function shufflePuzzle() {
+            puzzleState = [1, 2, 3, 4, 5, 6, 7, 8, 0];
+            for (let i = 0; i < 100; i++) {
+                const randomIndex = Math.floor(Math.random() * 9);
+                movePuzzlePiece(randomIndex);
+            }
+            renderPuzzle();
+        }
+
+        function movePuzzlePiece(index) {
+            const canMove = (
+                (index === emptyIndex - 1 && emptyIndex % 3 !== 0) ||
+                (index === emptyIndex + 1 && emptyIndex % 3 !== 2) ||
+                index === emptyIndex - 3 ||
+                index === emptyIndex + 3
+            );
+            
+            if (canMove) {
+                [puzzleState[index], puzzleState[emptyIndex]] = [puzzleState[emptyIndex], puzzleState[index]];
+                emptyIndex = index;
+                renderPuzzle();
+                checkPuzzleWin();
+            }
+        }
+
+        function renderPuzzle() {
+            const grid = document.getElementById('puzzleGrid');
+            if (!grid) return;
+            
+            grid.innerHTML = puzzleState.map((num, index) => 
+                `<div class="puzzle-piece ${num === 0 ? 'empty' : ''}" onclick="movePuzzlePiece(${index})">${num || ''}</div>`
+            ).join('');
+        }
+
+        function checkPuzzleWin() {
+            const isWin = puzzleState.every((num, index) => 
+                index === 8 ? num === 0 : num === index + 1
+            );
+            
+            if (isWin) {
+                showNotification('Пазл собран! 🎉', 'success');
+                updateProgress(15);
+            }
+        }
+
+        // Лабиринт
+        let mazeGrid = [];
+        let playerPos = { x: 0, y: 0 };
+        let goalPos = { x: 9, y: 9 };
+
+        function generateMaze() {
+            const size = 10;
+            mazeGrid = Array(size).fill().map(() => Array(size).fill(0));
+            
+            // Простой лабиринт
+            for (let i = 0; i < size; i++) {
+                for (let j = 0; j < size; j++) {
+                    if (Math.random() < 0.3 && !(i === 0 && j === 0) && !(i === 9 && j === 9)) {
+                        mazeGrid[i][j] = 1; // стена
+                    }
+                }
+            }
+            
+            // Гарантируем путь
+            mazeGrid[0][1] = 0;
+            mazeGrid[1][0] = 0;
+            mazeGrid[8][9] = 0;
+            mazeGrid[9][8] = 0;
+            
+            renderMaze();
+        }
+
+        function renderMaze() {
+            const container = document.getElementById('mazeGrid');
+            if (!container) return;
+            
+            container.innerHTML = '';
+            for (let i = 0; i < 10; i++) {
+                for (let j = 0; j < 10; j++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'maze-cell';
+                    
+                    if (i === playerPos.y && j === playerPos.x) {
+                        cell.classList.add('player');
+                        cell.textContent = '🦁';
+                    } else if (i === goalPos.y && j === goalPos.x) {
+                        cell.classList.add('goal');
+                        cell.textContent = '🏁';
+                    } else if (mazeGrid[i][j] === 1) {
+                        cell.classList.add('wall');
+                    }
+                    
+                    container.appendChild(cell);
+                }
+            }
+        }
+
+        function moveMaze(direction) {
+            let newX = playerPos.x;
+            let newY = playerPos.y;
+            
+            switch(direction) {
+                case 'up': newY--; break;
+                case 'down': newY++; break;
+                case 'left': newX--; break;
+                case 'right': newX++; break;
+            }
+            
+            if (newX >= 0 && newX < 10 && newY >= 0 && newY < 10 && mazeGrid[newY][newX] !== 1) {
+                playerPos.x = newX;
+                playerPos.y = newY;
+                renderMaze();
+                
+                if (newX === goalPos.x && newY === goalPos.y) {
+                    showNotification('Лабиринт пройден! 🏆', 'success');
+                    updateProgress(20);
+                    setTimeout(() => generateMaze(), 2000);
+                }
+            }
+        }
+
+        // Саймон говорит
+        let simonSequence = [];
+        let playerSequence = [];
+        let simonLevel = 1;
+
+        function startSimon() {
+            simonSequence = [];
+            playerSequence = [];
+            simonLevel = 1;
+            document.getElementById('simonLevel').textContent = simonLevel;
+            addToSimonSequence();
+        }
+
+        function addToSimonSequence() {
+            simonSequence.push(Math.floor(Math.random() * 4));
+            playSimonSequence();
+        }
+
+        function playSimonSequence() {
+            document.getElementById('simonMessage').textContent = 'Смотри внимательно!';
+            let i = 0;
+            const interval = setInterval(() => {
+                if (i < simonSequence.length) {
+                    const btn = document.getElementById(`simon${simonSequence[i]}`);
+                    btn.classList.add('active');
+                    setTimeout(() => btn.classList.remove('active'), 500);
+                    i++;
+                } else {
+                    clearInterval(interval);
+                    document.getElementById('simonMessage').textContent = 'Твой ход!';
+                }
+            }, 800);
+        }
+
+        function simonClick(index) {
+            playerSequence.push(index);
+            
+            const btn = document.getElementById(`simon${index}`);
+            btn.classList.add('active');
+            setTimeout(() => btn.classList.remove('active'), 300);
+            
+            if (playerSequence[playerSequence.length - 1] !== simonSequence[playerSequence.length - 1]) {
+                document.getElementById('simonMessage').textContent = 'Ошибка! Попробуй ещё раз!';
+                playerSequence = [];
+                setTimeout(() => playSimonSequence(), 1500);
+            } else if (playerSequence.length === simonSequence.length) {
+                simonLevel++;
+                document.getElementById('simonLevel').textContent = simonLevel;
+                document.getElementById('simonMessage').textContent = 'Отлично! Следующий уровень!';
+                playerSequence = [];
+                updateProgress(5);
+                setTimeout(() => addToSimonSequence(), 1500);
+            }
+        }
+
+        // Раскраска
+        let selectedColor = '#FF6B6B';
+
+        function generateColoringGrid() {
+            const grid = document.getElementById('coloringGrid');
+            if (!grid) return;
+            
+            grid.innerHTML = '';
+            for (let i = 0; i < 100; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'coloring-cell';
+                cell.onclick = () => colorCell(cell);
+                grid.appendChild(cell);
+            }
+        }
+
+        function selectColor(color) {
+            selectedColor = color;
+            document.querySelectorAll('.palette-color').forEach(c => c.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        function colorCell(cell) {
+            cell.style.background = selectedColor;
+        }
+
+        function clearColoring() {
+            document.querySelectorAll('.coloring-cell').forEach(cell => {
+                cell.style.background = 'white';
+            });
+        }
+
+        // Пианино
+        function playNote(note) {
+            document.getElementById('lastNote').textContent = note;
+            // Визуальная обратная связь
+            event.target.style.background = '#667eea';
+            setTimeout(() => {
+                event.target.style.background = event.target.classList.contains('black') ? '#333' : 'white';
+            }, 200);
+        }
+
+        // Танцы
+        let danceCombo = 0;
+
+        function startDance() {
+            danceCombo = 0;
+            document.getElementById('danceCombo').textContent = danceCombo;
+            
+            const sequence = [];
+            for (let i = 0; i < 5; i++) {
+                sequence.push(Math.floor(Math.random() * 9));
+            }
+            
+            let index = 0;
+            const interval = setInterval(() => {
+                if (index < sequence.length) {
+                    const arrow = document.getElementById(`arrow${sequence[index]}`);
+                    arrow.classList.add('active');
+                    setTimeout(() => arrow.classList.remove('active'), 500);
+                    index++;
+                } else {
+                    clearInterval(interval);
+                    danceCombo = sequence.length;
+                    document.getElementById('danceCombo').textContent = danceCombo;
+                    updateProgress(3);
+                }
+            }, 600);
+        }
+
+        // Игра в слова
+        const words = [
+            { word: 'КОШКА', hint: 'Домашнее животное' },
+           { word: 'СОБАКА', hint: 'Лучший друг человека' },
             { word: 'СОЛНЦЕ', hint: 'Светит днём' },
             { word: 'РАДУГА', hint: 'Появляется после дождя' },
             { word: 'ШКОЛА', hint: 'Место для учёбы' },
